@@ -1,0 +1,28 @@
+package:
+  name: pixi-magic-extension
+  version: "0.1.0"
+
+source:
+  path: ..
+
+build:
+  noarch: generic
+  script: conda/build.sh
+
+requirements:
+  host:
+    - nodejs >=18
+    - jupyterlab >=4
+    - yarn
+  run:
+    - jupyterlab >=4
+    - nodejs >=18
+
+about:
+  home: https://github.com/yourusername/pixi-magic-extension
+  license: MIT
+  summary: "A JupyterLab extension that turns cells with successful `%pixi_install` magic into raw cells"
+
+extra:
+  recipe-maintainers:
+    - yourusername
