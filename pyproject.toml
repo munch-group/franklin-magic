@@ -1,24 +1,32 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=60", "wheel", "jupyter_packaging>=0.12"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "franklin_magic"
+name = "franklin-magic"
 version = "0.1.0"
-description = "A custom Jupyter magic for installing Pixi packages"
+description = "Combined JupyterLab extension and IPython line magic for Pixi-based package management"
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Your Name", email = "you@example.com"}
 ]
-dependencies = []
 requires-python = ">=3.7"
+dependencies = ["ipython", "jupyterlab>=4"]
 
-[project.urls]
-Homepage = "https://github.com/yourusername/franklin_magic"
+[tool.setuptools]
+packages = ["franklin_magic"]
+include-package-data = true
 
-[tool.setuptools.packages.find]
-where = ["src/franklin_magic"]
+[tool.setuptools.package-data]
+"franklin_magic.labextension" = ["**/*"]
 
-[project.entry-points."ipython_magic"]
-franklin_magic = "franklin_magic.magic:load_ipython_extension"
+[tool.jupyter-packaging.builder]
+builder = "jupyter_packaging.npm_builder"
+build_cmd = "build"
+source_dir = "js"
+build_dir = "franklin_magic/labextension"
+
+[tool.jupyter-packaging.data_files]
+"share/jupyter/labextensions/franklin-magic" = ["franklin_magic/labextension/**/*", "js/install.json"]
+# "share/jupyter/labextensions/franklin-magic" = ["js/install.json"]

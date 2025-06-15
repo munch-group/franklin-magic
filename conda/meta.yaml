@@ -21,8 +21,8 @@ requirements:
 about:
   home: https://github.com/yourusername/pixi-magic-extension
   license: MIT
-  summary: "A JupyterLab extension that turns cells with successful `%pixi_install` magic into raw cells"
+  summary: "A JupyterLab extension that provides a `%franklin_install` magic and turns cells into raw cells upon successful execution"
 
 extra:
   recipe-maintainers:
-    - yourusername
+    - munch-group
