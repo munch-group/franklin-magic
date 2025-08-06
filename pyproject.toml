@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "franklin-magic"
-version = "0.1.0"
+version = "0.1.1"
 description = "Combined JupyterLab extension and IPython line magic for Pixi-based package management"
 readme = "README.md"
 license = "MIT"
